@@ -1,0 +1,59 @@
+version: '4'
+networks:
+  my_network:
+    driver: bridge
+    # Use a custom driver
+    # driver: custom-driver-1
+services:
+  mssql:
+    container_name: sql-server
+    # image: mcr.microsoft.com/mssql/server:2019-latest
+    image: mcr.microsoft.com/azure-sql-edge:latest
+    #image: mcr.microsoft.com/mssql/server:2017-CU11-ubuntu
+    restart: always
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "Password.1"
+    ports:
+      - 1433:1433
+    # volumes:
+    #   - my-volume:/var/opt/mssql
+    networks:
+      - my_network
+  apigateway:
+    build:
+      context: ./APIGateWay
+      dockerfile: Dockerfile
+    ports:
+      - "6060:6060"
+    networks:
+      - my_network
+  authentication:
+    build:
+      context: ./Authentication
+      dockerfile: Dockerfile
+    depends_on:
+      - mssql
+    ports:
+      - "5002:5002"
+    networks:
+      - my_network
+  baocaoservice:
+    build:
+      context: ./BaoCaoService
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5001"
+    networks:
+      - my_network
+      # volumes:
+      #   my-volume:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "4200:80"
+    networks:
+      - my_network
+

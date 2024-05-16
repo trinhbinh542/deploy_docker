@@ -1,0 +1,76 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/hubs/{everything}",
+      "DownstreamScheme": "ws",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "authentication",
+          "Port": "5002"
+        }
+      ],
+      "UpstreamPathTemplate": "/hubs/{everything}",
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE",
+        "OPTIONS"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/Api/Account/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "authentication",
+          "Port": "5002"
+        }
+      ],
+      "UpstreamPathTemplate": "/Api/Account/{everything}",
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/Api/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "authentication",
+          "Port": "5002"
+        }
+      ],
+      "UpstreamPathTemplate": "/Api/{everything}",
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "baocaoservice",
+          "Port": "5001"
+        }
+      ],
+      "UpstreamPathTemplate": "/{everything}",
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE"
+      ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://apigateway:6060"
+  }
+}

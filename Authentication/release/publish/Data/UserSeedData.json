@@ -1,0 +1,32 @@
+[
+  {
+    "UserName": "canbo1",
+    "Email": "canbo1@donvi.com",
+    "Ngaysinh": "1956-07-22",
+    "Name": "canbo1",
+    "PhoneNumber": "09700000",
+    "Created": "2020-06-24",
+    "LastActive": "2020-06-21",
+    "DepartmentId": "07CA1673-4E6C-448E-8F65-A1EF3B65717B"
+  },
+  {
+    "UserName": "canbo2",
+    "Email": "canbo2@donvi.com",
+    "Ngaysinh": "1986-07-22",
+    "Name": "canbo2",
+    "PhoneNumber": "09800000",
+    "Created": "2020-06-24",
+    "LastActive": "2020-06-21",
+    "DepartmentId": "07CA1673-4E6C-448E-8F65-A1EF3B65717B"
+  },
+  {
+    "UserName": "canbo3",
+    "Email": "canbo3@donvi.com",
+    "Ngaysinh": "1998-07-22",
+    "Name": "canbo3",
+    "PhoneNumber": "09900000",
+    "Created": "2020-06-24",
+    "LastActive": "2020-06-21",
+    "DepartmentId": "07CA1673-4E6C-448E-8F65-A1EF3B65717B"
+  }
+]
